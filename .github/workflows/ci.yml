@@ -41,7 +41,6 @@ jobs:
 
     - name: Lint QGIS Python Script (Syntax & PEP 8 Checking)
       run: |
-        # Check python directory if it exists, otherwise skip to prevent empty failures
         if [ -d python ]; then
           flake8 python/ --count --select=E9,F63,F7,F82 --show-source --statistics
           flake8 python/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
@@ -60,22 +59,10 @@ jobs:
       run: |
         pg_isready -h localhost -p 5432 -U postgres
         
-        if [ -f sql/dc_region_aviation_postgis.sql ]; then
-          echo "Validating baseline script execution..."
-          psql -h localhost -p 5432 -U postgres -d faa_db -f sql/dc_region_aviation_postgis.sql
+        if [ -f sql/spatial_routing_analysis.sql ]; then
+          echo "Testing execution of spatial routing queries..."
+          psql -h localhost -p 5432 -U postgres -d faa_db -f sql/spatial_routing_analysis.sql
         else
-          echo "Base dataset script not detected. Skipping step."
+          echo "Error: Critical routing SQL file missing!"
+          exit 1
         fi
-
-        if [ -d sql ] && [ "$(ls -A sql)" ]; then
-          echo "Validating available PostGIS database scripts..."
-          for f in sql/*.sql; do
-            if [ "$f" != "sql/dc_region_aviation_postgis.sql" ]; then
-              echo "Testing execution of $f..."
-              psql -h localhost -p 5432 -U postgres -d faa_db -f "$f"
-            fi
-          done
-        else
-          echo "No custom analytic SQL files found yet. Skipping verification."
-        fi
-

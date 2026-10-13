@@ -7,13 +7,13 @@ diversion airports (minimum runway length, true distance on the WGS 84 ellipsoid
 shows them live with range rings, bearings, distances and ETAs. The whole stack is open source:
 PostgreSQL/PostGIS, QGIS and Python.
 
-> **Illustrative data and a simulated flight. Not for navigation or flight planning.**
+
 
 <!-- Add a screenshot of your QGIS map at docs/images/diversion_map.png, then uncomment:
 ![Diversion map](docs/images/diversion_map.png)
 -->
 
-## What it demonstrates
+## SHOWCASES
 
 - **Spatial SQL:** `geography` casts for true distances, `ST_DWithin`, `ST_Distance`, `ST_Azimuth`,
   `ST_LineInterpolatePoint`, `ST_Segmentize`, `LATERAL` joins, and a set-returning SQL function.

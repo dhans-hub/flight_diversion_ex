@@ -1,4 +1,4 @@
-# Flight Diversion Airport Analysis (PostGIS + QGIS)
+#Flight Diversion DC Airport Analysis
 
 ![CI](https://github.com/dhans-hub/flight_diversion_ex/actions/workflows/ci.yml/badge.svg)
 

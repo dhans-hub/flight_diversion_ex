@@ -6,9 +6,6 @@ This project was built entirely using an open source data stack of QGIS, PostGIS
 
 
 
-<!-- Add a screenshot of your QGIS map at docs/images/diversion_map.png, then uncomment:
-![Diversion map](docs/images/diversion_map.png)
--->
 
 ## SHOWCASES
 

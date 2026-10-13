@@ -1,11 +1,8 @@
-#Flight Diversion DC Airport Analysis
+Flight Diversion DC Airport Analysis
 
 ![CI](https://github.com/dhans-hub/flight_diversion_ex/actions/workflows/ci.yml/badge.svg)
 
-A simulated flight moves along a great-circle route. PostGIS ranks the nearest suitable
-diversion airports (minimum runway length, true distance on the WGS 84 ellipsoid), and QGIS
-shows them live with range rings, bearings, distances and ETAs. The whole stack is open source:
-PostgreSQL/PostGIS, QGIS and Python.
+This project was built entirely using an open source data stack of QGIS, PostGIS, and Python. The geodata such as airports, runways, and boundaries are also public and open source. When executed, the project mimics how an FAA safety team locates alternative airports in the Washington D.C area if an emergency occurs along the flight route. The tool tracks and calculates the top three airports to land at so long as the criteria for the distance and runway length parameters is met.
 
 
 
